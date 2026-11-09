@@ -9,6 +9,8 @@ export const lowerThirdBlock: GraphicDefinition = {
 	id: "block-lower-third",
 	name: "Lower third",
 	keywords: ["lower third", "name", "title", "bang ten", "ban ten", "caption"],
+	description:
+		"Name badge / lower third: a bar wipes in with a person's name and role. Use when introducing a speaker, guest or author.",
 	animated: true,
 	params: [
 		{ key: "title", label: "Title", type: "text", default: "Nguyễn Minh Khang" },

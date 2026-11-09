@@ -9,6 +9,8 @@ export const countdownBlock: GraphicDefinition = {
 	id: "block-countdown",
 	name: "Countdown",
 	keywords: ["countdown", "dem nguoc", "timer", "intro", "start"],
+	description:
+		"Countdown from a number down to another with a sweeping ring, then an end label. Use for an intro, launch or 'starting soon'.",
 	animated: true,
 	params: [
 		{ key: "from", label: "From", type: "number", default: 3, min: 0, max: 99, step: 1 },

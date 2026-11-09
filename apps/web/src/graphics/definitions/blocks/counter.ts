@@ -7,6 +7,8 @@ export const counterBlock: GraphicDefinition = {
 	id: "block-counter",
 	name: "Counter",
 	keywords: ["counter", "number", "stat", "dem so", "count up"],
+	description:
+		"Animated number that counts up to a target with a label. Use for a statistic, milestone or metric (e.g. users, views, revenue).",
 	animated: true,
 	params: [
 		{ key: "from", label: "From", type: "number", default: 0, min: 0, max: 1_000_000, step: 1 },

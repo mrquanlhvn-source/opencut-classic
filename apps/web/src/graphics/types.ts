@@ -25,6 +25,13 @@ export interface GraphicDefinition {
 	id: string;
 	name: string;
 	keywords: string[];
+	/**
+	 * One-line natural-language description of what the graphic/block is for.
+	 * Used by the AI block planner so an LLM (or the deterministic fallback)
+	 * can pick the right block from a prompt — the equivalent of a template's
+	 * `mo_ta`. Optional; plain shapes leave it unset.
+	 */
+	description?: string;
 	params: ParamDefinition[];
 	/**
 	 * When true, the renderer re-renders the source every frame and threads

@@ -7,6 +7,8 @@ export const percentRingBlock: GraphicDefinition = {
 	id: "block-percent-ring",
 	name: "Percent ring",
 	keywords: ["percent", "ring", "gauge", "vong phan tram", "stat"],
+	description:
+		"Circular gauge that sweeps up to a target percentage while the number counts up, with a label. Use for a rate, score or completion %.",
 	animated: true,
 	params: [
 		{ key: "target", label: "Target %", type: "number", default: 100, min: 0, max: 100, step: 1 },

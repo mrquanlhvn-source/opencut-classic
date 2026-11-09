@@ -7,6 +7,8 @@ export const progressBarBlock: GraphicDefinition = {
 	id: "block-progress-bar",
 	name: "Progress bar",
 	keywords: ["progress", "bar", "loading", "thanh tien do", "percent"],
+	description:
+		"Horizontal bar that fills to 100% with a live percentage and label. Use for loading, a step/progress indicator or completion.",
 	animated: true,
 	params: [
 		{ key: "label", label: "Label", type: "text", default: "Đang tải" },

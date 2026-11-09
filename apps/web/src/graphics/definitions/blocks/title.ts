@@ -7,6 +7,8 @@ export const titleBlock: GraphicDefinition = {
 	id: "block-title",
 	name: "Title",
 	keywords: ["title", "heading", "kinetic text", "chu to", "intro"],
+	description:
+		"Big kinetic title with an accent underline. Use for an opening title, section heading or headline.",
 	animated: true,
 	params: [
 		{ key: "text", label: "Text", type: "text", default: "TIÊU ĐỀ" },
