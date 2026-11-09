@@ -1,3 +1,4 @@
+import { pickPaletteByText } from "./palettes";
 import type { BlockOp, BlockPlan } from "./schema";
 
 // Deterministic, keyword-based fallback planner. Runs fully offline (no API
@@ -94,9 +95,10 @@ export function planDeterministic({ prompt }: { prompt: string }): BlockPlan {
 		});
 	}
 
-	// Lay ops out sequentially, ~4s each.
+	// Lay ops out sequentially, ~4s each, and tint them with a matching palette.
 	const DURATION = 4;
 	return {
+		palette: pickPaletteByText({ prompt }) ?? undefined,
 		ops: ops.slice(0, 6).map((op, index) => ({
 			...op,
 			atSeconds: index * DURATION,

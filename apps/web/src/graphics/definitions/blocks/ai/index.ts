@@ -3,6 +3,7 @@ import { type BlockPlan, sanitizePlan } from "./schema";
 
 export type { BlockOp, BlockPlan } from "./schema";
 export { buildBlockCatalog } from "./catalog";
+export { applyPaletteToOps, PALETTES } from "./palettes";
 
 export interface PlanResult {
 	plan: BlockPlan;

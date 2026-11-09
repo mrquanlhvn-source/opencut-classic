@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useEditor } from "@/editor/use-editor";
 import { buildGraphicPreviewUrl, registerDefaultGraphics } from "@/graphics";
-import { planBlocks } from "@/graphics/definitions/blocks/ai";
+import { applyPaletteToOps, planBlocks } from "@/graphics/definitions/blocks/ai";
 import { blockDefinitions } from "@/graphics/definitions/blocks";
 import type { ParamValues } from "@/params";
 import { buildGraphicElement } from "@/timeline/element-utils";
@@ -62,7 +62,8 @@ export function BlocksView() {
 		setBusy(true);
 		try {
 			const { plan, source } = await planBlocks({ prompt: text });
-			if (plan.ops.length === 0) {
+			const ops = applyPaletteToOps({ plan });
+			if (ops.length === 0) {
 				toast.error("Không tạo được block nào từ mô tả này");
 				return;
 			}
@@ -70,7 +71,7 @@ export function BlocksView() {
 			const baseSeconds = mediaTimeToSeconds({
 				time: editor.playback.getCurrentTime(),
 			});
-			for (const op of plan.ops) {
+			for (const op of ops) {
 				insertBlock({
 					definitionId: op.blockId,
 					startTime: mediaTimeFromSeconds({
