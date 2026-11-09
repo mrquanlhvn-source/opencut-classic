@@ -4,6 +4,7 @@ import { persist } from "zustand/middleware";
 import {
 	ArrowRightDoubleIcon,
 	ClosedCaptionIcon,
+	DashboardSquare01Icon,
 	Folder03Icon,
 	Happy01Icon,
 	HeadphonesIcon,
@@ -20,6 +21,7 @@ export const TAB_KEYS = [
 	"sounds",
 	"text",
 	"stickers",
+	"blocks",
 	"effects",
 	"transitions",
 	"captions",
@@ -51,6 +53,10 @@ export const tabs = {
 	stickers: {
 		icon: createHugeiconsIcon({ icon: Happy01Icon }),
 		label: "Stickers",
+	},
+	blocks: {
+		icon: createHugeiconsIcon({ icon: DashboardSquare01Icon }),
+		label: "Blocks",
 	},
 	effects: {
 		icon: createHugeiconsIcon({ icon: MagicWand05Icon }),
