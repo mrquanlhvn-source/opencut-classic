@@ -39,6 +39,19 @@ export function roundRectPath({
 	ctx.closePath();
 }
 
+/** Format an integer with thousands separators (e.g. 1234567 -> "1.234.567"). */
+export function formatInt({
+	value,
+	separator = ".",
+}: {
+	value: number;
+	separator?: string;
+}): string {
+	return Math.round(value)
+		.toString()
+		.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+}
+
 /** Largest font size (px) that keeps `text` within `maxWidth`, capped at `maxSize`. */
 export function fitFontSize({
 	ctx,
