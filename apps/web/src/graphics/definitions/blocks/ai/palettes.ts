@@ -102,6 +102,13 @@ const BLOCK_PALETTE_ROLES: Record<string, Record<string, PaletteRole>> = {
 		trackColor: "muted",
 		textColor: "text",
 	},
+	"block-quote": {
+		markColor: "accent",
+		textColor: "text",
+		authorColor: "accent",
+	},
+	"block-bar-chart": { barColor: "accent", textColor: "text" },
+	"block-checklist": { checkColor: "accent", textColor: "text" },
 };
 
 /**

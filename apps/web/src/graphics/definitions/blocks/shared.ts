@@ -39,6 +39,38 @@ export function roundRectPath({
 	ctx.closePath();
 }
 
+/** Split a "a | b | c" string into trimmed, non-empty items (capped). */
+export function splitItems({
+	value,
+	max = 8,
+}: {
+	value: string;
+	max?: number;
+}): string[] {
+	return value
+		.split("|")
+		.map((part) => part.trim())
+		.filter(Boolean)
+		.slice(0, max);
+}
+
+/** Parse a "Label:number | Label:number" series into points (value defaults 0). */
+export function parseSeries({
+	value,
+	max = 8,
+}: {
+	value: string;
+	max?: number;
+}): Array<{ label: string; value: number }> {
+	return splitItems({ value, max }).map((item) => {
+		const idx = item.lastIndexOf(":");
+		if (idx < 0) return { label: item, value: 0 };
+		const label = item.slice(0, idx).trim();
+		const num = Number(item.slice(idx + 1).replace(/[^\d.-]/g, ""));
+		return { label, value: Number.isFinite(num) ? num : 0 };
+	});
+}
+
 /** Format an integer with thousands separators (e.g. 1234567 -> "1.234.567"). */
 export function formatInt({
 	value,

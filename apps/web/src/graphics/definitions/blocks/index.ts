@@ -1,9 +1,12 @@
 import type { GraphicDefinition } from "../../types";
+import { barChartBlock } from "./bar-chart";
+import { checklistBlock } from "./checklist";
 import { counterBlock } from "./counter";
 import { countdownBlock } from "./countdown";
 import { lowerThirdBlock } from "./lower-third";
 import { percentRingBlock } from "./percent-ring";
 import { progressBarBlock } from "./progress-bar";
+import { quoteBlock } from "./quote";
 import { titleBlock } from "./title";
 
 // Animated "blocks": motion-graphic presets (title badges, countdowns, ...)
@@ -17,6 +20,9 @@ export const blockDefinitions: GraphicDefinition[] = [
 	counterBlock,
 	progressBarBlock,
 	percentRingBlock,
+	quoteBlock,
+	barChartBlock,
+	checklistBlock,
 ];
 
 export {
@@ -26,4 +32,7 @@ export {
 	counterBlock,
 	progressBarBlock,
 	percentRingBlock,
+	quoteBlock,
+	barChartBlock,
+	checklistBlock,
 };

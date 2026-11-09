@@ -87,6 +87,27 @@ export function planDeterministic({ prompt }: { prompt: string }): BlockPlan {
 		});
 	}
 
+	if (has({ text, words: ["trích dẫn", "trich dan", "câu nói", "cau noi", "quote", "châm ngôn", "cham ngon", "nhận xét", "testimonial"] })) {
+		ops.push({
+			blockId: "block-quote",
+			params: {
+				quote: quotes[0] ?? "Đơn giản mà mạnh mẽ.",
+				author: quotes[1] ?? "— Khách hàng",
+			},
+		});
+	}
+
+	if (has({ text, words: ["biểu đồ", "bieu do", "bar chart", "cột", "so sánh", "so sanh", "chart"] })) {
+		ops.push({ blockId: "block-bar-chart", params: {} });
+	}
+
+	if (has({ text, words: ["danh sách", "danh sach", "checklist", "liệt kê", "liet ke", "ưu điểm", "uu diem", "tính năng", "tinh nang", "các bước", "cac buoc", "gạch đầu dòng"] })) {
+		ops.push({
+			blockId: "block-checklist",
+			params: quotes.length >= 2 ? { items: quotes.join("|") } : {},
+		});
+	}
+
 	// Always do something: if nothing matched, show the prompt as a title.
 	if (ops.length === 0) {
 		ops.push({
